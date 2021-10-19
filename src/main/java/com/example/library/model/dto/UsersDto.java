@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class UsersDto {
     String name;
-    String contact;
+    String pass;
 }

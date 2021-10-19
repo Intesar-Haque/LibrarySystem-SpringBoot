@@ -22,6 +22,6 @@ public class Users {
     Long userId;
     @NotNull
     String name;
-    String contact;
+    String pass;
 
 }

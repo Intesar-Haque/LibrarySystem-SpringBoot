@@ -11,16 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/user/")
+@RestController
 public class UsersController {
     @Autowired
     UsersService usersService;
-    @RequestMapping("add")
+    @RequestMapping("/user/add")
     public Users addUser(@RequestBody UsersDto usersDto) {
         return usersService.addUser(usersDto);
     }
-    @RequestMapping("remove")
+    @RequestMapping("/user/remove")
     public Users removeUser(@RequestParam Long userId) {
         return usersService.removeUser(userId);
+    }
+    @RequestMapping("/user/login")
+    public String login(@RequestBody UsersDto usersDto) {
+        return usersService.login(usersDto);
     }
 }

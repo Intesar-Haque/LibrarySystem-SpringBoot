@@ -10,12 +10,12 @@ import java.util.List;
 
 @Repository
 public interface BooksRepo extends JpaRepository<Books, String> {
-    List<Books> findByNameAndAuthor(String name, String  author);
-
-    Books findById(Long id);
-
-    @Transactional
-    @Modifying
-    void deleteById(Long id);
+//    List<Books> findByNameAndAuthor(String name, String  author);
+//
+//    Books findById(Long id);
+//
+//    @Transactional
+//    @Modifying
+//    void deleteById(Long id);
 
 }

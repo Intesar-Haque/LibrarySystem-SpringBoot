@@ -11,12 +11,13 @@ import java.util.List;
 
 @Repository
 public interface UsersRepo extends JpaRepository<Users, String> {
-    List<Users> findByNameAndContact(String name, String  contact);
+//    List<Users> findByNameAndContact(String name, String  contact);
+//
+//    Users findById(Long id);
+    Users findByNameAndPass(String name, String pass);
 
-    Users findById(Long id);
-
-    @Transactional
-    @Modifying
-    void deleteById(Long id);
+//    @Transactional
+//    @Modifying
+//    void deleteById(Long id);
 
 }

@@ -6,6 +6,7 @@ import com.example.library.model.dto.UsersDto;
 public interface UsersService {
     Users addUser(UsersDto usersDto);
     Users removeUser(Long userId);
+    String login(UsersDto usersDto);
 
 
 }

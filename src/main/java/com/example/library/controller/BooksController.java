@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/book/")
+@RestController
 public class BooksController {
     @Autowired
     BooksService booksService;
 
-    @RequestMapping("add")
+    @RequestMapping("/book/add")
     public Books addBook(@RequestBody BooksDto booksDto) {
         return booksService.addBook(booksDto);
     }
-    @RequestMapping("remove")
+    @RequestMapping("/book/remove")
     public Books removeBook(@RequestParam Long bookId) {
         return booksService.removeBook(bookId);
     }
