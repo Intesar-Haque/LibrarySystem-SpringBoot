@@ -15,6 +15,7 @@ public interface UsersRepo extends JpaRepository<Users, String> {
 //
     Users findByUserId(Long id);
     Users findByNameAndPass(String name, String pass);
+    Users findByAuth(String auth);
 
 //    @Transactional
 //    @Modifying

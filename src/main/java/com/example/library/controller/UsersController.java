@@ -6,10 +6,7 @@ import com.example.library.model.dto.BooksDto;
 import com.example.library.model.dto.UsersDto;
 import com.example.library.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UsersController {
@@ -24,7 +21,7 @@ public class UsersController {
         return usersService.removeUser(userId);
     }
     @RequestMapping("/user/login")
-    public String login(@RequestBody UsersDto usersDto) {
-        return usersService.login(usersDto);
+    public String login(@RequestBody UsersDto usersDto, @RequestHeader String auth) {
+        return usersService.login(usersDto, auth);
     }
 }

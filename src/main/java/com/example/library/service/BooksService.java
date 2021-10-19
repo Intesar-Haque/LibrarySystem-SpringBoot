@@ -4,7 +4,7 @@ import com.example.library.model.Books;
 import com.example.library.model.dto.BooksDto;
 
 public interface BooksService {
-    Books addBook(BooksDto booksDto);
+    String addBook(BooksDto booksDto, String auth);
     Books removeBook(Long bookId);
-    Books borrowBook(Long userId, Long bookId);
+    String borrowBook(Long userId, Long bookId, String auth);
 }

@@ -23,5 +23,7 @@ public class Users {
     @NotNull
     String name;
     String pass;
+    String auth;
+    String role;
 
 }
