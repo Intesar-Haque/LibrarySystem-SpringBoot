@@ -12,7 +12,7 @@ import java.util.List;
 public interface BooksRepo extends JpaRepository<Books, String> {
 //    List<Books> findByNameAndAuthor(String name, String  author);
 //
-//    Books findById(Long id);
+    Books findByBookId(Long id);
 //
 //    @Transactional
 //    @Modifying

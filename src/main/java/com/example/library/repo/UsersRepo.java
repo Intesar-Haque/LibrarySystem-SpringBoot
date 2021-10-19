@@ -13,7 +13,7 @@ import java.util.List;
 public interface UsersRepo extends JpaRepository<Users, String> {
 //    List<Users> findByNameAndContact(String name, String  contact);
 //
-//    Users findById(Long id);
+    Users findByUserId(Long id);
     Users findByNameAndPass(String name, String pass);
 
 //    @Transactional

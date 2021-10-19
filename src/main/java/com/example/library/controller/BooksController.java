@@ -22,5 +22,9 @@ public class BooksController {
     public Books removeBook(@RequestParam Long bookId) {
         return booksService.removeBook(bookId);
     }
+    @RequestMapping("/book/borrow")
+    public  Books borrowBook(@RequestParam Long userId, @RequestParam Long bookId){
+        return booksService.borrowBook(userId, bookId);
+    }
 
 }
