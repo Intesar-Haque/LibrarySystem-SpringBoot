@@ -10,15 +10,15 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface UsersRepo extends JpaRepository<Users, String> {
+public interface UsersRepo extends JpaRepository<Users, Long> {
 //    List<Users> findByNameAndContact(String name, String  contact);
 //
     Users findByUserId(Long id);
     Users findByNameAndPass(String name, String pass);
     Users findByAuth(String auth);
 
-//    @Transactional
-//    @Modifying
-//    void deleteById(Long id);
+    @Transactional
+    @Modifying
+    void deleteByUserId(Long id);
 
 }

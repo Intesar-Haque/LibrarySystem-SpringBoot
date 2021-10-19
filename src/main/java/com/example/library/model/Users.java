@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 @Setter
 public class Users {
     @JsonIgnore
-    @ManyToMany( fetch = FetchType.LAZY, mappedBy = "users")
+    @ManyToMany( fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "users")
     private List<Books> books = new ArrayList<>();
     @Id
     @GeneratedValue

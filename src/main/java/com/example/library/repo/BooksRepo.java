@@ -9,13 +9,13 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface BooksRepo extends JpaRepository<Books, String> {
+public interface BooksRepo extends JpaRepository<Books, Long> {
 //    List<Books> findByNameAndAuthor(String name, String  author);
 //
     Books findByBookId(Long id);
-//
-//    @Transactional
-//    @Modifying
-//    void deleteById(Long id);
+
+    @Transactional
+    @Modifying
+    void deleteByBookId(Long id);
 
 }
