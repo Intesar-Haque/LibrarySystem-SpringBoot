@@ -35,6 +35,17 @@ public class BooksServiceImp implements BooksService {
     }
 
     @Override
+    public ResponseEntity<String> updateBook(BooksDto booksDto, Long bookId) {
+        Books books = booksRepo.findByBookId(bookId);
+        books.setName(booksDto.getName());
+        books.setYear(booksDto.getYear());
+        books.setAuthor(booksDto.getAuthor());
+        books.setGenre(booksDto.getGenre());
+        booksRepo.save(books);
+        return  new ResponseEntity<>("Book Updated", HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<String>  removeBook(Long bookId) {
         Books books = booksRepo.findByBookId(bookId);
         List<Users> emptyList = new ArrayList<>();

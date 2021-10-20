@@ -2,6 +2,7 @@ package com.example.library.controller;
 
 import com.example.library.model.Books;
 import com.example.library.model.dto.BooksDto;
+import com.example.library.repo.BooksRepo;
 import com.example.library.service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,12 +18,31 @@ import java.util.List;
 public class BooksController {
     @Autowired
     BooksService booksService;
+    @Autowired
+    BooksRepo booksRepo;
     @RequestMapping("/book/create")
     public String book () {
         return "book";
     }
 
-    @RequestMapping("/book/add")
+    @RequestMapping("/book/update")
+    public String updateBook (Model model,@RequestParam Long bookId) {
+        Books book = booksRepo.findByBookId(bookId);
+        model.addAttribute("book", book);
+        return "bookUpdate";
+    }
+    @RequestMapping(path = "/book/update/confirm", method= RequestMethod.POST )
+    public ResponseEntity<String> updateBook(
+            @RequestParam("bookId") Long bookId,
+            @RequestParam("name") String name,
+            @RequestParam("author") String author,
+            @RequestParam("genre") String genre,
+            @RequestParam("year") String year ) {
+        BooksDto booksDto = new BooksDto(name,year,author,genre);
+        return booksService.updateBook(booksDto, bookId);
+    }
+
+    @RequestMapping(path = "/book/add", method= RequestMethod.POST )
     public ResponseEntity<String> addBook(
             @RequestParam("name") String name,
             @RequestParam("author") String author,
@@ -31,6 +51,7 @@ public class BooksController {
         BooksDto booksDto = new BooksDto(name,year,author,genre);
         return booksService.addBook(booksDto);
     }
+
     @RequestMapping("/book/remove")
     public ResponseEntity<String> removeBook(@RequestParam Long bookId) {
         return booksService.removeBook(bookId);

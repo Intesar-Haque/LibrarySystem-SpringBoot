@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface BooksService {
     ResponseEntity<String> addBook(BooksDto booksDto);
+    ResponseEntity<String> updateBook(BooksDto booksDto, Long bookId);
     ResponseEntity<String>  removeBook(Long bookId);
     ResponseEntity<String>  borrowBook(Long bookId, String userId);
     List<Books> getAllBooks();
