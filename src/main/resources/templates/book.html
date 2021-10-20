@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Add Book</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-xl bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand " th:href="@{/admin}">Library System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class=" form-inline mr-auto" ></div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:href="@{logout}" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br><br><br><br>
+<form  th:action="@{add}"  th:method="post">
+    <h3 class="text-center">Add Book</h3>
+    <div class="container mt-5 ">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Book Name">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author Name">
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter Genre">
+        </div>
+        <div class="form-group">
+            <label for="year">Publish Year</label>
+            <input type="text" class="form-control" id="year" name="year" placeholder="Enter Publish Year">
+        </div>
+
+        <div class="container text-center"><button type="submit" class="btn btn-primary">Add Book</button></div>
+    </div>
+</form>
+</body>
+</html>

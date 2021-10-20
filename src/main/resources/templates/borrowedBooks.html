@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Borrowed books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-xl bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand " th:href="@{/home}">Library System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class=" form-inline mr-auto" ></div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:href="@{logout}" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br><br><br>
+
+<div class="container">
+    <div class="text-center"> <h3>Borrowed books</h3></div>
+    <br>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Year</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        <tr th:each="book : ${books}">
+            <td th:text="${book.getName()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getGenre()}"></td>
+            <td th:text="${book.getYear()}" class="text-center"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

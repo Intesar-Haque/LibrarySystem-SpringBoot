@@ -8,14 +8,16 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsersRepo extends JpaRepository<Users, Long> {
 //    List<Users> findByNameAndContact(String name, String  contact);
 //
     Users findByUserId(Long id);
-    Users findByNameAndPass(String name, String pass);
-    Users findByAuth(String auth);
+   // Users findByUname(String uname;)
+
+    Optional<Users> findByUname(String uname);
 
     @Transactional
     @Modifying

@@ -4,8 +4,12 @@ import com.example.library.model.Books;
 import com.example.library.model.dto.BooksDto;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 public interface BooksService {
-    ResponseEntity<String> addBook(BooksDto booksDto, String auth);
-    ResponseEntity<String>  removeBook(Long bookId, String auth);
-    ResponseEntity<String>  borrowBook(Long bookId, String auth);
+    ResponseEntity<String> addBook(BooksDto booksDto);
+    ResponseEntity<String>  removeBook(Long bookId);
+    ResponseEntity<String>  borrowBook(Long bookId, String userId);
+    List<Books> getAllBooks();
+
 }
