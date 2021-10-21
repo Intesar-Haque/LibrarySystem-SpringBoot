@@ -10,7 +10,7 @@
 
     <title>Update Book</title>
 </head>
-<body>
+<body class="table-dark">
 <header>
     <nav class="navbar navbar-expand-xl bg-dark navbar-dark fixed-top">
         <a class="navbar-brand " th:href="@{/admin}">Library System</a>
@@ -28,7 +28,7 @@
     </nav>
 </header>
 <br><br><br><br>
-<form  th:action="@{update/confirm}"  th:method="post">
+<form  th:action="@{update/confirm}"  th:method="get">
     <h3 class="text-center">Update Book</h3>
     <div class="container mt-2 ">
         <input type="hidden"  id="bookId" name="bookId" th:field="${book.bookId}">

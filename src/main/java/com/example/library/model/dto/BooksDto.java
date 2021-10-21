@@ -13,6 +13,9 @@ public class BooksDto {
         this.genre = genre;
     }
 
+    public BooksDto() {
+    }
+
     String name;
     String year;
     String author;

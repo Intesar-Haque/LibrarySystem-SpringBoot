@@ -19,19 +19,14 @@ public class UsersController {
     UsersService usersService;
     @Autowired
     BooksService booksService;
-    @RequestMapping(path = "/registration/registerUser", method= RequestMethod.POST )
-    public String registerUser(
-            @RequestParam("name") String name,
-            @RequestParam("uname") String uname,
-            @RequestParam("pass") String pass
-    ) {
-        UsersDto usersDto = new UsersDto(name, pass, uname);
+    @PostMapping( "/registration/registerUser")
+    public String registerUser(@ModelAttribute("usersDto") UsersDto usersDto) {
         usersService.addUser(usersDto);
-
-        return "redirect:/";
+        return "redirect:/home";
     }
     @RequestMapping("/registration")
-    public String registration() {
+    public String registration(Model model) {
+        model.addAttribute("usersDto", new UsersDto());
         return "registration";
     }
     @RequestMapping("/user/remove")
@@ -44,4 +39,10 @@ public class UsersController {
         model.addAttribute("books", books);
         return "borrowedBooks";
     }
+//    @RequestMapping("/user/books/remove")
+//    public String borrowed(Authentication auth) {
+//        List<Books> books = usersService.borrowed(auth.getName());
+//        model.addAttribute("books", books);
+//        return "borrowedBooks";
+//    }
 }

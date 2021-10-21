@@ -21,7 +21,8 @@ public class BooksController {
     @Autowired
     BooksRepo booksRepo;
     @RequestMapping("/book/create")
-    public String book () {
+    public String book (Model model) {
+        model.addAttribute("booksDto",new BooksDto());
         return "book";
     }
 
@@ -31,7 +32,7 @@ public class BooksController {
         model.addAttribute("book", book);
         return "bookUpdate";
     }
-    @RequestMapping(path = "/book/update/confirm", method= RequestMethod.POST )
+    @GetMapping("/book/update/confirm" )
     public ResponseEntity<String> updateBook(
             @RequestParam("bookId") Long bookId,
             @RequestParam("name") String name,
@@ -43,12 +44,7 @@ public class BooksController {
     }
 
     @RequestMapping(path = "/book/add", method= RequestMethod.POST )
-    public ResponseEntity<String> addBook(
-            @RequestParam("name") String name,
-            @RequestParam("author") String author,
-            @RequestParam("genre") String genre,
-            @RequestParam("year") String year ) {
-        BooksDto booksDto = new BooksDto(name,year,author,genre);
+    public ResponseEntity<String> addBook(@ModelAttribute("booksDto") BooksDto booksDto ) {
         return booksService.addBook(booksDto);
     }
 

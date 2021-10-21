@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Add Book</title>
 </head>
-<body>
+<body class="table-dark">
 <header>
     <nav class="navbar navbar-expand-xl bg-dark navbar-dark fixed-top">
         <a class="navbar-brand " th:href="@{/admin}">Library System</a>
@@ -27,24 +27,24 @@
     </nav>
 </header>
 <br><br><br><br>
-<form  th:action="@{add}"  th:method="post">
+<form  th:action="@{add}" th:object="${booksDto}" th:method="post">
     <h3 class="text-center">Add Book</h3>
     <div class="container mt-2 ">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Book Name">
+            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter Book Name">
         </div>
         <div class="form-group">
             <label for="author">Author</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author Name">
+            <input type="text" class="form-control" id="author" th:field="*{author}" placeholder="Enter Author Name">
         </div>
         <div class="form-group">
             <label for="genre">Genre</label>
-            <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter Genre">
+            <input type="text" class="form-control" id="genre" th:field="*{genre}" placeholder="Enter Genre">
         </div>
         <div class="form-group">
             <label for="year">Publish Year</label>
-            <input type="text" class="form-control" id="year" name="year" placeholder="Enter Publish Year">
+            <input type="text" class="form-control" id="year" th:field="*{year}" placeholder="Enter Publish Year">
         </div>
 
         <div class="container text-center"><button type="submit" class="btn btn-primary">Add Book</button></div>

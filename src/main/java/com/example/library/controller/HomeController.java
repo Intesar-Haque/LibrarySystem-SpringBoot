@@ -15,15 +15,12 @@ import java.util.List;
 public class HomeController {
     @Autowired
     BooksService booksService;
-    @Autowired
-    UsersService usersService;
 
     @RequestMapping("/home")
     public String loggedInHome (Model model, Authentication authentication) {
         List<Books> books = booksService.getAllBooks();
         model.addAttribute("books", books);
         model.addAttribute("user",authentication.getName());
-
         return "home";
     }
 

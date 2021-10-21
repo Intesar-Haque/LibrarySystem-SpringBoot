@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Registration</title>
 </head>
-<body>
+<body class="table-dark">
 <header>
     <nav class="navbar navbar-expand-xl bg-dark navbar-dark fixed-top">
         <a class="navbar-brand " th:href="@{/}">Library System</a>
@@ -27,20 +27,21 @@
     </nav>
 </header>
 <br><br><br><br>
-<form  th:action="@{registration/registerUser}"  th:method="post">
+<!--/*@thymesVar id="usersDto" fields name, uname , pass"*/-->
+<form  th:action="@{registration/registerUser}" th:object="${usersDto}" method="post">
     <h3 class="text-center">Registration</h3>
     <div class="container mt-2 ">
         <div class="form-group">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter Name">
+            <input type="text" class="form-control" id="inputName" th:field="*{name}" placeholder="Enter Name">
         </div>
         <div class="form-group">
             <label for="inputUname">Username</label>
-            <input type="text" class="form-control" id="inputUname" name="uname" placeholder="Enter Username">
+            <input type="text" class="form-control" id="inputUname" th:field="*{uname}" placeholder="Enter Username">
         </div>
         <div class="form-group">
             <label for="InputPassword1">Password</label>
-            <input type="password" class="form-control" id="InputPassword1" name="pass" placeholder="Password">
+            <input type="password" class="form-control" id="InputPassword1" th:field="*{pass}" placeholder="Password">
         </div>
         <div class="container text-center"><button type="submit" class="btn btn-primary">SignUp</button></div>
     </div>
